@@ -9,12 +9,12 @@ from bs4 import BeautifulSoup
 
 
 # Set up the Telegram bot using your bot's access token
-Token = "6263833223:AAEjJHi-VzwkFNuSeW_NiP4P_MpjHKysfe8"
+Token = ${{secrets.TOKEN}}
 updater = Updater(Token, use_context = True)
 dispatcher= updater.dispatcher
 
 # Set up ChatGPT using your OpenAI API key
-openai.api_key = "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"
+openai.api_key = ${{secrets.TOKEN}}
 
 # Define the function to generate a response using ChatGPT
 def start(update, context):
