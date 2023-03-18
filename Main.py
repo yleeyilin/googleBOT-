@@ -14,7 +14,7 @@ updater = Updater(Token, use_context = True)
 dispatcher= updater.dispatcher
 
 # Set up ChatGPT using your OpenAI API key
-openai.api_key = ${{secrets.TOKEN}}
+# openai.api_key = ${{secrets.TOKEN}}
 
 # Define the function to generate a response using ChatGPT
 def start(update, context):
