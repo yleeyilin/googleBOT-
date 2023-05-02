@@ -24,16 +24,11 @@ def start(update, context):
 def generate_response(query, index):
     fallback = "Sorry, I cannot think of a reply for that."
     result = ''
-
     try:
         search_result_list = list(search(query))
-
         page = requests.get(search_result_list[index])
-
         tree = html.fromstring(page.content)
-
         soup = BeautifulSoup(page.content, features="lxml")
-
         article_text = ''
         article = soup.findAll('p')
         for element in article:
@@ -41,16 +36,13 @@ def generate_response(query, index):
         article_text = article_text.replace('\n', '')
         first_sentence = article_text.split('.')
         first_sentence = first_sentence[0].split('?')[0]
-
         chars_without_whitespace = first_sentence.translate(
             { ord(c): None for c in string.whitespace }
         )
-
         if len(chars_without_whitespace) > 0:
             result = first_sentence
         else:
             result = fallback
-
         return result
     except Exception as e:
     # Catch the exception and print the error message
@@ -58,7 +50,6 @@ def generate_response(query, index):
     """ except:
         if len(result) == 0: result = fallback
         return result """
-
 """ def generate_response(message):
     if message is None:
         return "Sorry, I didn't catch that. Can you please repeat?"
